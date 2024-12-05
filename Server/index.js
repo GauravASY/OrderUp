@@ -9,13 +9,11 @@ import { v2 as cloudinary } from 'cloudinary'
 dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: `${process.env.FRONTEND_URL}`,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, 
-    
+    credentials: true,   
   }));
 
   cloudinary.config({
