@@ -1,5 +1,8 @@
 {
     "rewrites": [
       { "source": "/(.*)", "destination": "/" }
-    ]
+    ],
+    "env": {
+      "VITE_BACKEND_URL" : "order-up-gamma.vercel.app"
+   }
   }

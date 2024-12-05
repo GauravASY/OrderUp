@@ -13,7 +13,7 @@
            }
        ],
      "env": {
-        "FRONTEND_URL" : "http://localhost:5173",
+        "FRONTEND_URL" : "order-up-c8pt.vercel.app",
         "JWT_SECRET" : "GentsugaTensho",
         "DATABASE_URL" : "mongodb+srv://Gaurav:xEfXL8h3NI4PHpHJ@practicedb1.rznqqci.mongodb.net/FoodApp?retryWrites:true&w:majority&appName:PracticeDB1",
         "CLOUD_NAME" : "dtvrhs4ov",
