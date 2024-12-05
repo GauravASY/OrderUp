@@ -1,0 +1,24 @@
+.button{
+    height: 90%;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+    color: white;
+    background-color: #FC8A06;
+    border-radius: 4rem;
+    font-weight: 500;
+    border: #FC8A06 solid thin ;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .selected {
+    background-color: #03081F;
+    border: #000000 solid thin;
+    color:white;
+    font-weight: 600;
+  }
