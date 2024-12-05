@@ -11,10 +11,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin:  "https://order-up-c8pt.vercel.app/",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,   
-  }));
+  origin: "https://order-up-c8pt.vercel.app",  
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,   
+}));
 app.use(express.json());
 
   cloudinary.config({
