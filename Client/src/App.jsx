@@ -127,7 +127,7 @@ function App() {
       {
         categories ? 
         <div style={{display:'flex', margin:'0px 80px 40px 80px', gap:'12px', overflowX:'scroll', borderRadius:'0.8rem'}}>{
-          categories.map((category) => (<CategoryTile name={category.name} image = {category.image} key={category._id}/>))
+          categories.slice(0,8).map((category) => (<CategoryTile name={category.name} image = {category.image} key={category._id}/>))
         }
         </div> : <></>
       }
