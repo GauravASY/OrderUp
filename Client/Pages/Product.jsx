@@ -22,6 +22,7 @@ function Product() {
   const {id} = useParams();
   const navigate = useNavigate();
   const[currRestaurant, setCurrRestaurant] = useState({});
+  const [searchFilter, setSearchFilter] = useState(" ");
   const [menu, setMenu] = useState([]);
   const [deals, setDeals] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
@@ -131,7 +132,7 @@ async function getUser(){
       <div style={{display:'flex', margin:'20px 80px', padding:'0px 40px', justifyContent:'space-between'}}>
         <div style={{display:'flex', alignItems:'center', justifyContent:'start', fontFamily:'Poppins', fontWeight:'700', fontSize:'1.5rem'}}>All Offers from {currRestaurant?.name} East London</div>
         <div style={{display:'flex', alignItems:'center', justifyContent:'end',width:'25%', position:'relative'}}>
-          <input type="text" placeholder='Search from menu...' style={{fontFamily:'Poppins', fontSize:'0.9rem', fontWeight:'600', height:'100%',width:'100%' ,padding:'4px 35px', borderRadius:'2rem', border:'grey solid thin'}}/>
+          <input type="text" placeholder='Search from menu...' style={{fontFamily:'Poppins', fontSize:'0.9rem', fontWeight:'600', height:'100%',width:'100%' ,padding:'4px 35px', borderRadius:'2rem', border:'grey solid thin'}} value={searchFilter} onChange={(e)=>setSearchFilter(e.target.value)}/>
           <img src={search} style={{height:'20px', width:'20px', position:'absolute',left:'10px'}} />
         </div>
       </div>
@@ -147,7 +148,7 @@ async function getUser(){
               </div>
 
               {
-                menu.map((category)=> (
+                menu.filter((category)=> category.name === searchFilter).map((category)=> (
                   <div style={{margin:'80px 80px'}}>
                     <div style={{ fontFamily:"Poppins", fontWeight:"700", fontSize:"2.5rem", marginBottom:'30px' }}>{category.name}</div>
                     {
