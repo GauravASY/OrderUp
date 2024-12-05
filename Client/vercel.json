@@ -3,6 +3,6 @@
       { "source": "/(.*)", "destination": "/" }
     ],
     "env": {
-      "VITE_BACKEND_URL" : "https://order-up-gamma.vercel.app"
+      "VITE_BACKEND_URL" : "https://orderup-tlpd.onrender.com"
    }
   }
