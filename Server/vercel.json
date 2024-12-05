@@ -1,0 +1,24 @@
+{
+    "version": 2,
+       "builds": [
+           {
+               "src": "index.js",
+               "use": "@vercel/node"
+           }
+       ],
+       "routes": [
+           {
+               "src": "/(.*)",
+               "dest": "/index.js"
+           }
+       ],
+     "env": {
+        "FRONTEND_URL" : "http://localhost:5173",
+        "JWT_SECRET" : "GentsugaTensho",
+        "DATABASE_URL" : "mongodb+srv://Gaurav:xEfXL8h3NI4PHpHJ@practicedb1.rznqqci.mongodb.net/FoodApp?retryWrites:true&w:majority&appName:PracticeDB1",
+        "CLOUD_NAME" : "dtvrhs4ov",
+        "CLOUDINARY_API_KEY" : "145978453672141",
+        "CLOUDINARY_API_SECRET": "Pq6e7UQ1Ul_4yyPfvcQlTPBgLbc"
+     }
+   }
+   
