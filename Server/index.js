@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: `${process.env.FRONTEND_URL}`,
+    origin:  "https://order-up-c8pt.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,   
   }));
