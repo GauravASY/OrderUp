@@ -148,19 +148,36 @@ async function getUser(){
               </div>
 
               {
-                menu.filter((category)=> category.name === searchFilter).map((category)=> (
-                  <div style={{margin:'80px 80px'}}>
-                    <div style={{ fontFamily:"Poppins", fontWeight:"700", fontSize:"2.5rem", marginBottom:'30px' }}>{category.name}</div>
-                    {
-                      <div style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center'}}>
-                        {
-                        category.dishes.map((dish) => (<Card key={dish._id} dish={dish}/>))
-                        }
-                      </div>
-                    }
-                  </div>
-                ))
-              }
+  searchFilter && searchFilter !== "" ? (
+    menu.filter((category) => category.name === searchFilter).map((category) => (
+      <div style={{ margin: '80px 80px' }} key={category.name}>
+        <div style={{ fontFamily: "Poppins", fontWeight: "700", fontSize: "2.5rem", marginBottom: '30px' }}>
+          {category.name}
+        </div>
+        <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', alignItems: 'center' }}>
+          {category.dishes.map((dish) => (
+            <Card key={dish._id} dish={dish} />
+          ))}
+        </div>
+      </div>
+    ))
+  ) : (
+    
+    menu.map((category) => (
+      <div style={{ margin: '80px 80px' }} key={category.name}>
+        <div style={{ fontFamily: "Poppins", fontWeight: "700", fontSize: "2.5rem", marginBottom: '30px' }}>
+          {category.name}
+        </div>
+        <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', alignItems: 'center' }}>
+          {category.dishes.map((dish) => (
+            <Card key={dish._id} dish={dish} />
+          ))}
+        </div>
+      </div>
+    ))
+  )
+}
+
         </div>
           <div style={cartVisible ? {width:'25%', margin:'40px', display:'flex', flexDirection:'column', gap:'15px'}:{}}>
             <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', background:'#FC8A06', padding:'20px 0px', borderRadius:'0.5rem', width:'320px'}}>
