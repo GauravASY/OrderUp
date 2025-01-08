@@ -7,9 +7,12 @@ import Footer from "../Components/Footer.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import { toastOptions } from "../Utilities/ToastOptons.jsx";
 import axios from 'axios'
+import { useMediaQuery } from "react-responsive";
 import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 425 });
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [contact, setContact] = useState("")
@@ -48,10 +51,11 @@ function SignUp() {
       <div style={{ height: "100vh", display: "flex" }}>
         <div
           style={{
-            width: "50%",
+            width: isMobile ? "100%" : "50%",
             display: "flex",
             flexDirection: "column",
-            padding: "60px 140px",
+            gap:isMobile ? "15px" :"",
+            padding: isMobile ?"40px 20px":"60px 140px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -193,7 +197,7 @@ function SignUp() {
               background: "#FC8A06",
               color: "white",
               border: "none",
-              marginBottom: "48px",
+              marginBottom: isMobile?"15px":"48px",
             }}
             onClick={handleClick}
           >
@@ -218,7 +222,7 @@ function SignUp() {
           </div>
         </div>
 
-        <div style={{ width: "50%", padding: "12px" }}>
+        <div style={{ width: isMobile?"0px":"50%", padding: "12px" , display:isMobile?"none":"block"}}>
           <img
             src={signpic}
             alt="Image"

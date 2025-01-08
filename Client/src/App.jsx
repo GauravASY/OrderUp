@@ -12,14 +12,16 @@ import PromoCard from '../Components/PromoCard'
 import Poster2 from '../Components/Poster2'
 import Poster3 from '../Components/Poster3'
 import Scooter from '../Assets/PromoScooter.png'
+import orderUK from '../Assets/OrderUKcolor.png'
 import cook from '../Assets/Promo1.png'
 import StatBar from '../Components/StatBar'
+import stack from '../Assets/Menu.png'
 import { useMediaQuery } from "react-responsive";
 
 
 function App() {
   const isDesktop = useMediaQuery({ minWidth: 768 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 425 });
   const[user, setUser] = useState(null);
   const token = localStorage.getItem('token');
   const [categories, setCategories] = useState([]);
@@ -102,8 +104,21 @@ function App() {
 
   return (
     <div className='Main'>
-      <Banner/> 
-      <Navbar user={user}/>
+      {
+        isMobile ? 
+        <div style={{display:'flex', flexWrap:'wrap'}}>
+          <div style={{ display: "flex", justifyContent: "center", width:'80%', padding:'4px'}}>
+            <img src={orderUK} alt="logo" style={{height:'38px'}}/>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", width:'20%', padding:'4px'}}>
+            <img src={stack} alt="logo"  style={{height:'38px'}}/>
+          </div>
+        </div> : 
+        <div>
+          <Banner/> 
+          <Navbar user={user}/>
+      </div>
+      }
       <HomePoster/>
       <div style={{fontFamily:"Poppins", fontWeight: '700', fontSize:'1.5rem', margin:'20px 80px', display:'flex', alignItems:'center'}}>
         <span>Up to -100% 🎊 Order.uk exclusive deals</span>

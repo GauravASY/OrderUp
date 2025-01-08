@@ -7,9 +7,12 @@ import Footer from "../Components/Footer.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import { toastOptions } from "../Utilities/ToastOptons.jsx";
 import axios from 'axios'
+import { useMediaQuery } from "react-responsive";
 import 'react-toastify/dist/ReactToastify.css';
 
 function SignIn() {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 425 });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -41,14 +44,15 @@ function SignIn() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-      <div style={{ height: "100vh", display: "flex" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh", width:'100vw' }}>
+      <div style={{ height: "100vh", width:'100vw', display: "flex"}}>
         <div
           style={{
-            width: "50%",
+            width: isMobile ? "100%" : "50%",
             display: "flex",
             flexDirection: "column",
-            padding: "60px 140px",
+            gap:isMobile ? "15px" :"",
+            padding: isMobile ?"40px 20px":"60px 140px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -182,7 +186,7 @@ function SignIn() {
           </div>
         </div>
 
-        <div style={{ width: "50%", padding: "12px" }}>
+        <div style={{ width: isMobile?"0px":"50%", padding: "12px" , display: isMobile? 'none' : 'block'}}>
           <img
             src={signpic}
             alt="Image"
@@ -194,8 +198,9 @@ function SignIn() {
             }}
           />
         </div>
+
       </div>
-      <Footer />
+      <Footer/>
       <ToastContainer/>
     </div>
   );

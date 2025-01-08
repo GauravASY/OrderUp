@@ -2,8 +2,11 @@ import React from 'react'
 import orderUK from '../Assets/OrderUKcolor.png'
 import { NavLink } from 'react-router-dom'
 import userIcon from '../Assets/Male User.png'
+import { useMediaQuery } from "react-responsive";
 
 function Navbar({user}) {
+    const isDesktop = useMediaQuery({ minWidth: 768 });
+    const isMobile = useMediaQuery({ maxWidth: 425 });
 
     const navLinkStyles = ({ isActive , disabled}) => ({
         height: "70%",
@@ -24,7 +27,7 @@ function Navbar({user}) {
       });
 
   return (
-    <div style={{display: 'flex', padding:'0px 120px', background:'white', marginTop:'20px', marginBottom:'20px'}}>
+    <div style={{display: 'flex', padding: isMobile?'0px':'0px 120px', background:'white', marginTop:'20px', marginBottom:'20px'}}>
         <div style={{width:'30%'}}>
         <img style={{height: "34px", objectFit : 'contain'}} src={orderUK} alt="Company Image" />
         </div>

@@ -2,11 +2,15 @@ import React from 'react'
 import star from '../Assets/Star.png'
 import pin from '../Assets/Location.png'
 import basket from '../Assets/Basket.png'
+import { useMediaQuery } from 'react-responsive'
 import downArrow from '../Assets/DownArrow.png'
 
 function Banner({setCartVisible, cartVisible}) {
+    const isDesktop = useMediaQuery({ minWidth: 768 });
+    const isMobile = useMediaQuery({ maxWidth: 425 });
+
   return (
-    <div style={{display:'flex', margin: '0px 80px 0px 80px', background:'#FAFAFA', borderBottomLeftRadius:'0.8rem', borderBottomRightRadius:'0.8rem'}}>
+    <div style={{display: isMobile?'none':'flex', margin: '0px 80px 0px 80px', background:'#FAFAFA', borderBottomLeftRadius:'0.8rem', borderBottomRightRadius:'0.8rem'}}>
         <div style={{display:'flex', justifyContent:'space-around', alignItems:'center' , width:'80%'}}>
             <div style={{display: 'flex', width: '40%', alignItems:'center'}}>
                 <img src={star} alt="star emoji" style={{height:'15px', width:'15px', marginRight:'12px'}}/>
